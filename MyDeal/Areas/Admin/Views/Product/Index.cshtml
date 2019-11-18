@@ -86,18 +86,7 @@ else
                     @Html.DisplayFor(modelItem => item.Rating)
                 </td>
                 <td>
-                    @{
-                        System.Text.StringBuilder sb2 = new System.Text.StringBuilder(item.ImageName);
-                        int ImageLen = sb2.Length;
-                    }
-                    @if (ImageLen > 10)
-                    {
-                        @item.ImageName.Replace(item.ImageName.Substring(9), " . . . ")
-                    }
-                    else
-                    {
-                        @item.ImageName
-                    }
+                    <img src="/Image/@Url.Content(item.ImageName)" height="80" width="100" />
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "EditProduct", new { id = item.Id }) |

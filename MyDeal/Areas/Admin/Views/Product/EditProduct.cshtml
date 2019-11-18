@@ -6,6 +6,8 @@
 
 <h2>Edit Product</h2>
 
+<img src="/Image/@Url.Content(Model.ImageName)" height="150" width="200" />
+
 @using (Html.BeginForm("EditProduct", "Product",FormMethod.Post,new {enctype="multipart/form-data"}))
 {
     @Html.AntiForgeryToken()

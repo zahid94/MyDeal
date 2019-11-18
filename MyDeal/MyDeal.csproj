@@ -131,9 +131,12 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashBoardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FirstSliderImageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomePageSliderController.cs" />
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\WelcomeSliderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,6 +200,14 @@
     <Content Include="Areas\Admin\Views\Product\EditProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Product\ProductDetails.cshtml" />
     <Content Include="Areas\Admin\Views\Product\RemoveProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\HomePageSlider\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HomePageSlider\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\HomePageSlider\Remove.cshtml" />
+    <Content Include="Areas\Admin\Views\HomePageSlider\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\FirstSliderImage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\FirstSliderImage\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\FirstSliderImage\Remove.cshtml" />
+    <Content Include="Areas\Admin\Views\FirstSliderImage\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -238,6 +249,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shop\ProductDetails.cshtml" />
+    <Content Include="Views\WelcomeSlider\Index.cshtml" />
+    <Content Include="Views\WelcomeSlider\FirstSlider.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

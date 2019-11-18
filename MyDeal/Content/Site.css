@@ -18,6 +18,9 @@ a:link {
 .headRightTop{
     padding:9px;
 }
+.img-fluid{
+    height:360px;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */

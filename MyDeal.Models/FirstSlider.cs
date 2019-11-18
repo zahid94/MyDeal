@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyDeal.Service
+namespace MyDeal.Models
 {
-    interface IHomePageSlider
+    public class FirstSlider:Entity<int>
     {
+        public string ImageName { get; set; }
     }
 }
