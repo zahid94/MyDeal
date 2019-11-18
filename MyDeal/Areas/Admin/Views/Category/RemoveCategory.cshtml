@@ -1,0 +1,38 @@
+﻿@model MyDeal.Models.Category
+
+@{
+    ViewBag.Title = "RemoveCategory";
+}
+
+<h3>Remove Category</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color float-left">
+            <input type="submit" value="Delete" class="dlt btn btn-outline-danger my-2 my-sm-0" />             
+        </div>
+    }
+</div>
+<div class="form-group">
+    <a href="/admin/category" class="btn btn-outline-success my-2 my-sm-0">Back to categories</a>
+</div>
+<script>
+    $(".dlt").click(function () {
+        if (!confirm("Are You sure want to delete this.")) {
+            return false;
+        };
+    });
+</script>

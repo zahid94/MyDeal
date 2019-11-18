@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - MyDeal</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="hedpad  col-xl-8">
+                <i class="fa fa-shopping-bag fa-3x" aria-hidden="true">
+                    <a href="/Admin/DashBoard">MyDeal</a>
+                </i>
+            </div>
+            <div class="headright col-xl-4">
+                <div class="headRightTop">
+                    <a href="#">SignIn</a>
+                    <a href="#">Create Account</a>
+                    <a href="#">Help</a>
+                    <a href="#">@DateTime.Now.Hour : @DateTime.Now.Minute</a>
+                </div>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+            @*<a class="navbar-brand" href="/Home/Index">MyDeal</a>*@
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav nav-item">
+                    <li><a class="nav-link" href="/Home/Index">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a class="nav-link" href="/Home/about"> About</a></li>
+                    <li><a class="nav-link" href="/Home/Contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container container-fluid">
+            <div class="row">
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/Admin/DashBoard" id="showDashboard">
+                                    <span data-feather="home"></span>
+                                    Dashboard <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="showOrder">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="file"></span>
+                                    Orders
+                                </a>
+                            </li>
+                            <li class="nav-item" id="showProduct">
+                                <a class="nav-link" href="/admin/Product">
+                                    <span data-feather="shopping-cart"></span>
+                                    Products
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id="showCustomer">
+                                    <span data-feather="users"></span>
+                                    Customers
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/Category" id="ShowCategory">
+                                    <span data-feather="bar-chart-2"></span>
+                                    Categories
+                                </a>
+                            </li>
+                            <li class="nav-item" id="ShowPage">
+                                <a class="nav-link" href="/Admin/Page/Index">
+                                    <span data-feather="layers"></span>
+                                    Page
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <span>Saved reports</span>
+                            <a class="d-flex align-items-center text-muted" href="#">
+                                <span data-feather="plus-circle"></span>
+                            </a>
+                        </h6>
+                        <ul class="nav flex-column mb-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="file-text"></span>
+                                    Current month
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="file-text"></span>
+                                    Last quarter
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="file-text"></span>
+                                    Social engagement
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="file-text"></span>
+                                    Year-end sale
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="col-md-9 ml-sm-auto col-lg-10 px-4" id="formview">
+                    @RenderBody()
+                </div>
+            </div>
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - MyDeal</p>
+                </footer>
+            </div>
+    </div>
+    
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

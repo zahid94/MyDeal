@@ -1,0 +1,104 @@
+﻿@model MyDeal.Models.Product
+
+@{
+    ViewBag.Title = "Remove Product";
+}
+
+<h2>Remove Product</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalBids)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalBids)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BidEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BidEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color float-left">
+            <input type="submit" value="Delete" class="dlt btn btn-outline-success my-2 my-sm-0" /> 
+            @*@Html.ActionLink("Back to List", "Index")*@
+        </div>
+    }
+</div>
+<div class="form-group">
+    <a href="/admin/Product" class="btn btn-outline-success my-2 my-sm-0">Back to Products</a>
+</div>
+<script>
+    $(".dlt").click(function () {
+        if (!confirm("Are You sure want to delete this.")) {
+            return false;
+        };
+    });
+</script>

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<MyDeal.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Products</h2>
+<hr />
+<p>
+    <a href="/admin/Product/AddProduct" class="btn btn-outline-secondary my-2 my-sm-0">Add New Product</a>
+</p>
+@if (!Model.Any())
+{
+    <h4>There are no any Products.</h4>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Category Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalBids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActualPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BidEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                Image Name
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @{
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder(item.Description);
+                        int len = sb.Length;
+                    }
+                    @if (len > 10)
+                    {
+                        @item.Description.Replace(item.Description.Substring(9), " . . . ")
+                    }
+                    else
+                    {
+                        @item.Description
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalBids)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActualPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BidEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @{
+                        System.Text.StringBuilder sb2 = new System.Text.StringBuilder(item.ImageName);
+                        int ImageLen = sb2.Length;
+                    }
+                    @if (ImageLen > 10)
+                    {
+                        @item.ImageName.Replace(item.ImageName.Substring(9), " . . . ")
+                    }
+                    else
+                    {
+                        @item.ImageName
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditProduct", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "ProductDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "RemoveProduct", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
