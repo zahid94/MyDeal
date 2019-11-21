@@ -21,7 +21,7 @@ namespace MyDeal.Controllers
         }
         public ActionResult ProductDetails(int id)
         {
-            return View(service.ProductDetails(x => x.Id > 0));
+            return View(service.ProductDetails(x => x.Id ==id));
         }
     }
 }

@@ -4,86 +4,49 @@
     ViewBag.Title = "Product Details";
 }
 
-<h2>Product Details</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="mb-3"></div>
+            <img src="/Image/@Url.Content(Model.ImageName)" height="200" width="250" />
+        </div>
+        <div class="col-xl-6">
+            <div class="mb-3"></div>
+            <h5>@Model.Title</h5>
+            <hr />
+            <h6>Actual Price(Tk) : @Model.ActualPrice</h6>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.Name)
-        </dt>
+            <h6>Current Price(Tk) : <span>@Model.CurrentPrice</span></h6>
+            <h6>Bids End Date : @Model.BidEndDate</h6>
+            @*<h6>Bids Now.</h6><span><input type="number" name="bids" value="Bits" /></span>*@
+            <form class="form-inline">
+                <div class="form-group mx-sm-3 mb-2">
+                    <input type="number" class="form-control" id="inputPassword2" placeholder="Bidts">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Bids</button>
+            </form>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TotalBids)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TotalBids)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ActualPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ActualPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CurrentPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BidEndDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BidEndDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageName)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="mb-3"></div>
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Description</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        @*<h5 class="card-title">Special title treatment</h5>*@
+        <p class="card-text">@Model.Description</p>
+        @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+    </div>
+</div>

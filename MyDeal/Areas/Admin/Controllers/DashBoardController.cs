@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyDeal.AuthenticationFilter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MyDeal.Areas.Admin.Controllers
 {
+    [AuthenticationFiltering]
     public class DashBoardController : Controller
     {
         // GET: Admin/DashBoard

@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Entity.cs" />
-    <Compile Include="FirstSlider.cs" />
     <Compile Include="HomePageSlider.cs" />
     <Compile Include="Migrations\201911160509292_allUpdate.cs" />
     <Compile Include="Migrations\201911160509292_allUpdate.Designer.cs">
@@ -89,11 +88,20 @@
     <Compile Include="Migrations\201911182032136_firstslider.Designer.cs">
       <DependentUpon>201911182032136_firstslider.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911190528101_all.cs" />
+    <Compile Include="Migrations\201911190528101_all.Designer.cs">
+      <DependentUpon>201911190528101_all.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911211032512_adminRegistration.cs" />
+    <Compile Include="Migrations\201911211032512_adminRegistration.Designer.cs">
+      <DependentUpon>201911211032512_adminRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDealDbContext.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AdminRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -136,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911182032136_firstslider.resx">
       <DependentUpon>201911182032136_firstslider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911190528101_all.resx">
+      <DependentUpon>201911190528101_all.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911211032512_adminRegistration.resx">
+      <DependentUpon>201911211032512_adminRegistration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

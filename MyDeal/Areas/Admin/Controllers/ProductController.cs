@@ -1,4 +1,5 @@
-﻿using MyDeal.Models;
+﻿using MyDeal.AuthenticationFilter;
+using MyDeal.Models;
 using MyDeal.Service;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MyDeal.Areas.Admin.Controllers
 {
+    [AuthenticationFiltering]
     public class ProductController : Controller
     {
         private readonly IProductService service;
@@ -22,7 +24,7 @@ namespace MyDeal.Areas.Admin.Controllers
         {
             return View(service.GetAllProduct(x=>x.Id>0));
         }
-
+        
         // GET: Admin/AddProduct
         [HttpGet]
         public ActionResult AddProduct()
@@ -30,7 +32,7 @@ namespace MyDeal.Areas.Admin.Controllers
             ViewBag.CategoryId = new SelectList(dbContext.categories, "Id", "Name");
             return View();
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddProduct(Product product , HttpPostedFileBase file)

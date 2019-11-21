@@ -1,4 +1,5 @@
-﻿using MyDeal.Models;
+﻿using MyDeal.AuthenticationFilter;
+using MyDeal.Models;
 using MyDeal.Service;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MyDeal.Areas.Admin.Controllers
 {
+    [AuthenticationFiltering]
     public class HomePageSliderController : Controller
     {
         private readonly IHomePageSliderService service;

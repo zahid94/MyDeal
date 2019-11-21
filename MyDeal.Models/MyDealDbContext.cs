@@ -17,6 +17,6 @@ namespace MyDeal.Models
         public DbSet<Category> categories { get; set; }
         public DbSet<Product> products { get; set; }
         public DbSet<HomePageSlider> homePageSliders { get; set; }
-        public DbSet<FirstSlider> FirstSlider { get; set; }
+        public DbSet<AdminRegistration>  registrations { get; set; }
     }
 }

@@ -18,13 +18,13 @@
                         <h4 class="card-title">
                             <a href="#">@product.Title</a>
                         </h4>
-                        <h6>Actual Price Tk. @product.ActualPrice </h6>                        
+                        <h6>Tk. @product.ActualPrice</h6>
                         <h6>Bits @product.TotalBids</h6>
                         @Html.ActionLink("Details", "ProductDetails", new { id = product.Id })
                     </div>
-                    <div class="card-footer">
+                    @*<div class="card-footer">
                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         }

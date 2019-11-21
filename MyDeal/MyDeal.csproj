@@ -129,12 +129,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminAuthenticationController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashBoardController.cs" />
-    <Compile Include="Areas\Admin\Controllers\FirstSliderImageController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomePageSliderController.cs" />
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="AuthenticationFilter\AuthenticationFiltering.cs" />
+    <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\WelcomeSliderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -204,10 +206,8 @@
     <Content Include="Areas\Admin\Views\HomePageSlider\Add.cshtml" />
     <Content Include="Areas\Admin\Views\HomePageSlider\Remove.cshtml" />
     <Content Include="Areas\Admin\Views\HomePageSlider\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\FirstSliderImage\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\FirstSliderImage\Add.cshtml" />
-    <Content Include="Areas\Admin\Views\FirstSliderImage\Remove.cshtml" />
-    <Content Include="Areas\Admin\Views\FirstSliderImage\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAuthentication\LogIn.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAuthentication\Registration.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -250,13 +250,15 @@
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shop\ProductDetails.cshtml" />
     <Content Include="Views\WelcomeSlider\Index.cshtml" />
-    <Content Include="Views\WelcomeSlider\FirstSlider.cshtml" />
+    <Content Include="Views\Pages\Index.cshtml" />
+    <Content Include="Views\Pages\pageMenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Image\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

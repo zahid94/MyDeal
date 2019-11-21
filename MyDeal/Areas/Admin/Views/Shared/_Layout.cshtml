@@ -40,16 +40,16 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav nav-item">
-                    <li><a class="nav-link" href="/Home/Index">Home <span class="sr-only">(current)</span></a></li>
-                    <li><a class="nav-link" href="/Home/about"> About</a></li>
-                    <li><a class="nav-link" href="/Home/Contact">Contact</a></li>
-                </ul>
             </div>
+            <ul class="navbar-nav nav-item ">
+                <li><a class="nav-link" href="#">Admin : @Session["Username"]</a></li>
+                <li><a href="/admin/AdminAuthentication/LogOut" class="nav-link">LogOut</a></li>
+            </ul>
         </nav>
         <div class="container container-fluid">
             <div class="row">
                 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="mb-3"></div>
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
@@ -80,6 +80,12 @@
                                 <a class="nav-link" href="#" id="showCustomer">
                                     <span data-feather="users"></span>
                                     Customers
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/AdminAuthentication/Registration" id="showCustomer">
+                                    <span data-feather="users"></span>
+                                    Admin
                                 </a>
                             </li>
                             <li class="nav-item">

@@ -50,10 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryService.cs" />
-    <Compile Include="FirstSliderService.cs" />
     <Compile Include="HomePageSliderService.cs" />
     <Compile Include="ICategoryService.cs" />
-    <Compile Include="IFirstSliderService.cs" />
     <Compile Include="IHomePageSliderService.cs" />
     <Compile Include="IPageService.cs" />
     <Compile Include="IProductService.cs" />
