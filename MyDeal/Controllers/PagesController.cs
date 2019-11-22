@@ -1,4 +1,5 @@
 ﻿using MyDeal.Models;
+using MyDeal.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,25 +10,21 @@ namespace MyDeal.Controllers
 {
     public class PagesController : Controller
     {
-        private readonly MyDealDbContext db;
+        private readonly IPageMenuService service; 
         public PagesController()
         {
-            db = new MyDealDbContext();
+            service = new PageMenuService();
         }
         // GET: Pages
         public ActionResult Index(string pages)
         {
-            Page model;            
-            model = db.pages.FirstOrDefault(x=>x.Name==pages);
-            ViewBag.PageName = model.Name;
-            return View(model);
+            ViewBag.Title = pages;
+            return View(service.PageDetails(x=>x.Name==pages));
         }
 
         public ActionResult pageMenuPartial()
         {
-            List<Page> model;
-            model = db.pages.ToArray().ToList();
-            return PartialView(model);
+            return PartialView(service.GetAllPage(x=>x.Id>0).ToList());
         }
     }
 }

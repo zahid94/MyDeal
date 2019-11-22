@@ -53,9 +53,11 @@
     <Compile Include="HomePageSliderService.cs" />
     <Compile Include="ICategoryService.cs" />
     <Compile Include="IHomePageSliderService.cs" />
+    <Compile Include="IPageMenuService.cs" />
     <Compile Include="IPageService.cs" />
     <Compile Include="IProductService.cs" />
     <Compile Include="IShopService.cs" />
+    <Compile Include="PageMenuService.cs" />
     <Compile Include="PageService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
