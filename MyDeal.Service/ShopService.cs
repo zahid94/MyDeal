@@ -61,5 +61,17 @@ namespace MyDeal.Service
                 throw;
             }
         }
+        public IEnumerable<Product> GetFilterProduct(Expression<Func<Product, bool>> expression)
+        {
+            try
+            {
+                return repository.GetFilterRecord(expression);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

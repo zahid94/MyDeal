@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MyDeal.Models.Category>
+
+
+
+<div class="dropdown show">
+    <a class="dropdown-toggle"  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categories
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">       
+        @foreach (var item in Model)
+        {
+           <a href="/Shop/GetFilterProduct?id=@item.Id" class="dropdown-item">@item.Name</a>
+        }
+    </div>
+</div>

@@ -14,5 +14,6 @@ namespace MyDeal.Service
         Product ProductDetails(Expression<Func<Product, bool>> expression);
         IEnumerable<Product> GetAllProduct(Expression<Func<Product, bool>> expression);
         IEnumerable<Bids> GetFilterBider(Expression<Func<Bids, bool>> expression);
+        IEnumerable<Product> GetFilterProduct(Expression<Func<Product, bool>> expression);
     }
 }

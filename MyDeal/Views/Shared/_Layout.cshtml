@@ -45,19 +45,22 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>            
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav nav-item float-left">
                     @Html.Action("pageMenuPartial", "Pages")
                 </ul>
+                <ul class="navbar-nav nav-item">
+                    @Html.Action("CategoryMenu", "Shop")
+                </ul>
             </div>
 
-            <ul class="navbar-nav nav-item ">               
-                @if (Session["CustomerUserName"] !=null)
+            <ul class="navbar-nav nav-item ">
+                @if (Session["CustomerUserName"] != null)
                 {
                     <li><a class="nav-link" href="#" id="NavText">Welcome : @Session["CustomerUserName"].ToString()</a></li>
                     <li><a href="/CustomerAuthentication/LogOut" class="nav-link" id="NavText">LogOut</a></li>
-                }                
+                }
             </ul>
         </nav>
     <div class="container body-content">

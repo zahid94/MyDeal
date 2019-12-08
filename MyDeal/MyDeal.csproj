@@ -619,6 +619,8 @@
     <Content Include="Views\Bids\GetAllComment.cshtml" />
     <Content Include="Views\Shop\ProductMenuPartial.cshtml" />
     <Content Include="Views\ErrorHandaller\PageNotFound.cshtml" />
+    <Content Include="Views\Shop\CategoryMenu.cshtml" />
+    <Content Include="Views\Shop\GetFilterProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

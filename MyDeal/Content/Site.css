@@ -6,6 +6,9 @@
 body {
     background-color: aliceblue;
 }
+.dropdown-toggle {
+    color: white;
+}
 
 footer {
     background-color: #2d333d;

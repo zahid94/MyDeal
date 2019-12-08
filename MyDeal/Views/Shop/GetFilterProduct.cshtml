@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MyDeal.Models.Product>
+
+@{
+    ViewBag.Title = ViewBag.CategoryName;
+}
+
+@if (!Model.Any())
+{
+<center>
+    <h2>There are no any Product.</h2>
+</center>
+}
+else
+{
+    <div class="mb-3"></div>
+    @ViewBag.CategoryName
+    <hr />
+    <div class="container">
+        <div class="row">
+            @foreach (var product in Model)
+            {
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <a href="/shop/productDetails?id=@product.Id">
+                        <div class="card h-100" style="text-align:center">
+                            <img class="card-img-top" src="/Image/@Url.Content(product.ImageName)" height="160" width="170" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">@product.Title</h4>
+                                <div>
+                                    <span class="takaicon">৳</span>@product.ActualPrice
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+}
+

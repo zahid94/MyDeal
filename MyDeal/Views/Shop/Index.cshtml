@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Home";
 }
+
 @Html.Action("Index", "WelcomeSlider")
 
 
@@ -10,7 +11,6 @@
     <div class="row">
         @foreach (var product in Model)
         {
-
             <div class="col-lg-3 col-md-6 mb-4">
                 <a href="/shop/productDetails?id=@product.Id">
                     <div class="card h-100" style="text-align:center">

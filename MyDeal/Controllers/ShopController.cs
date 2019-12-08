@@ -31,7 +31,8 @@ namespace MyDeal.Controllers
 
         public ActionResult GetFilterProduct(int id)
         {
-            return View(db.products.Where(x => x.CategoryId == id).ToList());
+            ViewBag.CategoryName = db.categories.Where(x => x.Id == id).FirstOrDefault().Name;
+            return View(service.GetFilterProduct(x => x.CategoryId == id));
         }
 
         [HttpGet]
