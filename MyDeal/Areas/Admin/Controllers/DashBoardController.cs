@@ -10,6 +10,7 @@ using System.Web.Mvc;
 namespace MyDeal.Areas.Admin.Controllers
 {
     [AdminFiltering]
+    [HandleError]
     public class DashBoardController : Controller
     {
         private readonly ICustomerService service;
@@ -30,10 +31,12 @@ namespace MyDeal.Areas.Admin.Controllers
         {
             return View(service.GetAll(x=>x.Id>0));
         }
+
         [HttpGet]
         public ActionResult GetAllBiders()
         {
             return View(bidsService.GetAllBider(x => x.Id > 0));
-        }
+        }               
+
     }
 }

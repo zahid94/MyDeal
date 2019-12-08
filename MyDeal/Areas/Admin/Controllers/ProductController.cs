@@ -11,6 +11,7 @@ using System.Web.Mvc;
 namespace MyDeal.Areas.Admin.Controllers
 {
     [AdminFiltering]
+    [HandleError]
     public class ProductController : Controller
     {
         private readonly IProductService service;

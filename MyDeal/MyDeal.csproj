@@ -142,6 +142,7 @@
     <Compile Include="AuthenticationFilter\AuthenticationFiltering.cs" />
     <Compile Include="Controllers\BidsController.cs" />
     <Compile Include="Controllers\CustomerAuthenticationController.cs" />
+    <Compile Include="Controllers\ErrorHandallerController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\WelcomeSliderController.cs" />
@@ -617,6 +618,7 @@
     <Content Include="Views\Shop\ProductDecription.cshtml" />
     <Content Include="Views\Bids\GetAllComment.cshtml" />
     <Content Include="Views\Shop\ProductMenuPartial.cshtml" />
+    <Content Include="Views\ErrorHandaller\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

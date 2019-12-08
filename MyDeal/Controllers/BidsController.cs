@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MyDeal.Controllers
 {
+    [HandleError]
     public class BidsController : Controller
     {
         private readonly IBidsService service;

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MyDeal.Controllers
 {
+    [HandleError]
     public class PagesController : Controller
     {
         private readonly IPageMenuService service; 

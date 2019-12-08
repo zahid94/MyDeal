@@ -10,6 +10,7 @@ using System.Web.Security;
 
 namespace MyDeal.Controllers
 {
+    [HandleError]
     public class CustomerAuthenticationController : Controller
     {
         private readonly ICustomerService service;

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace MyDeal.Controllers
 {
+    [HandleError]
     public class ShopController : Controller
     {
         private readonly IShopService service;
@@ -23,13 +24,18 @@ namespace MyDeal.Controllers
 
         [HttpGet]
         // GET: Shop
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
-            return View(db.products.Where(x=>x.CategoryId==id).ToList());
+            return View(service.GetAllProduct(x=>x.Id>0));
+        }
+
+        public ActionResult GetFilterProduct(int id)
+        {
+            return View(db.products.Where(x => x.CategoryId == id).ToList());
         }
 
         [HttpGet]
-        public ActionResult ProductMenuPartial()
+        public ActionResult CategoryMenu()
         {
             return PartialView(db.categories.ToList());
         }

@@ -10,6 +10,7 @@ using System.Web.Security;
 
 namespace MyDeal.Areas.Admin.Controllers
 {
+    [HandleError]
     public class AdminAuthenticationController : Controller
     {
         private readonly MyDealDbContext db;
