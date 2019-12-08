@@ -39,11 +39,11 @@ else
                     }
                     @if (len > 70)
                     {
-                        @item.Description.Replace(item.Description.Substring(69), " . . . ")
+                        @Html.Raw(item.Description.Replace(item.Description.Substring(69), " . . . "));
                     }
                     else
                     {
-                        @item.Description
+                        @Html.Raw(item.Description);
                     }
                 </td>
                 <td>

@@ -80,17 +80,9 @@ namespace MyDeal.Service
         {
             try
             {
-                if (_repository.IsExist(x=>x.Name==Page.Name))
-                {
-                    Page.Id = -1;
-                    return _repository.SaveToDatabase() > 0;
-                }
-                else
-                {
-                    Page.Name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Page.Name.ToLower());
-                    _repository.EditEntity(Page);
-                    return _repository.SaveToDatabase() > 0;
-                }
+                Page.Name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Page.Name.ToLower());
+                _repository.EditEntity(Page);
+                return _repository.SaveToDatabase() > 0;
             }
             catch (Exception)
             {

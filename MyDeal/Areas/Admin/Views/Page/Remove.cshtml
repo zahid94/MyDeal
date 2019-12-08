@@ -22,15 +22,18 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.Raw(Model.Description)
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
         <div class="form-actions no-color float-left">
-            <input type="submit" value="Delete" class="dlt btn btn-outline-danger my-2 my-sm-0" />             
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="dlt btn btn-outline-danger my-2 my-sm-0" />
+            </div>
         </div>
     }
 </div>

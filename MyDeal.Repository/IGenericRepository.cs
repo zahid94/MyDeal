@@ -15,7 +15,9 @@ namespace MyDeal.Repository
         EntityState EditEntity(TEntity entity);
         EntityState RemoveEntity(TEntity entity);
         TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> expression);
+        TEntity GetLastOrDefault(Expression<Func<TEntity, bool>> expression);
         IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> expression);
+        IEnumerable<TEntity> GetFilterRecord(Expression<Func<TEntity, bool>> expression);
         int SaveToDatabase();
     }
 }

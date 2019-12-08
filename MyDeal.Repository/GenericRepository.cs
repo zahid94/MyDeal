@@ -57,11 +57,37 @@ namespace MyDeal.Repository
             }
         }
 
+        public IEnumerable<TEntity> GetFilterRecord(Expression<Func<TEntity, bool>> expression)
+        {
+            try
+            {
+                return entities.Where(expression).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> expression)
         {
             try
             {
                 return entities.FirstOrDefault(expression);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public TEntity GetLastOrDefault(Expression<Func<TEntity, bool>> expression)
+        {
+            try
+            {
+                return entities.LastOrDefault(expression);
             }
             catch (Exception)
             {

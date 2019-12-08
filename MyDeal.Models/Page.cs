@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace MyDeal.Models
 {
@@ -12,6 +13,7 @@ namespace MyDeal.Models
         [Required]
         public string Name { get; set; }
         [Required]
+        [AllowHtml]
         public string Description { get; set; }
     }
 }

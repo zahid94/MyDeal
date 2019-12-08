@@ -1,9 +1,12 @@
-﻿using MyDeal.Models;
+﻿using MyDeal.Areas.Admin.AdminAuthenticationFilter;
+using MyDeal.AuthenticationFilter;
+using MyDeal.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MyDeal.Areas.Admin.Controllers
 {
@@ -28,6 +31,7 @@ namespace MyDeal.Areas.Admin.Controllers
             if (db.registrations.Any(x=>x.UserName==admin.UserName&& x.password==admin.password))
             {
                 Session["UserName"] = admin.UserName.ToString();
+                FormsAuthentication.SetAuthCookie(admin.UserName, false);
                 return RedirectToAction("index","DashBoard");
             }
             else
@@ -36,7 +40,7 @@ namespace MyDeal.Areas.Admin.Controllers
                 return PartialView();
             }
         }
-
+        [AdminFiltering]
         [HttpGet]
         public ActionResult Registration()
         {

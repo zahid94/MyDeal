@@ -1,8 +1,35 @@
 ﻿/* Set padding to keep content from hitting the edges */
 .container-fluid {
-    margin:0px;
-  
+    margin: 0px;
 }
+
+body {
+    background-color: aliceblue;
+}
+
+footer {
+    background-color: #2d333d;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.side {
+    background-color: black;
+}
+
+.text-md-center {
+    margin: 100px;
+}
+
+.card-title {
+    text-transform: capitalize;
+}
+
+.takaicon {
+    font-family: bold;
+}
+
 .hedpad {
     padding: 25px;
 }
@@ -10,29 +37,44 @@
 a:link {
     text-decoration: none;
 }
+
 .form-signin {
     width: 100%;
     max-width: 330px;
     padding: 15px;
     margin: 150px auto;
-    border: .5px solid black;
-    background-color: #F6DDCC;
 }
-.h3{
-    color:white;
+
+.LogInRegistration {
+    padding: 10px;
 }
-.bdy {
-    background-color: #FBEEE6;
+
+#NavText {
+    color: white;
+}
+
+#NavText:hover {
+    color:darkslategray;
+    }
+
+.AdminLogInBody {
+    background-color: azure;
 }
 
 .headright {
     padding: 5px;
 }
-.headRightTop{
-    padding:9px;
+
+.headRightTop {
+    padding: 9px;
 }
-.img-fluid{
-    height:360px;
+
+.img-fluid {
+    height: 360px;
+}
+
+#image {
+    margin: 50px;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -43,7 +85,6 @@ a:link {
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
-textarea {
+select {
     max-width: 280px;
 }

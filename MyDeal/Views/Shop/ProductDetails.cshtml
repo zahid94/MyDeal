@@ -6,44 +6,109 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xl-6">
+
+        <div class="col-xl-1">
+        </div>
+        <div class="col-xl-5">
             <div class="mb-3"></div>
-            <img src="/Image/@Url.Content(Model.ImageName)" height="200" width="250" />
+            <img src="/Image/@Url.Content(Model.ImageName)" id="image" height="200" width="350" />
         </div>
         <div class="col-xl-6">
             <div class="mb-3"></div>
             <h5>@Model.Title</h5>
             <hr />
-            <h6>Actual Price(Tk) : @Model.ActualPrice</h6>
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><h6>Actual Price : <span class="takaicon">&#2547;</span>@Model.ActualPrice</h6></li>
+                    <li class="list-group-item"><h6>Current Price : <span class="takaicon">&#2547;</span>@Model.CurrentPrice </h6></li>
+                    <li class="list-group-item"><h6>Bids End : @Model.BidEndDate </h6></li>
+                </ul>
+            </div>
+            <div class="mb-3"></div>            
+            <div>
 
-            <h6>Current Price(Tk) : <span>@Model.CurrentPrice</span></h6>
-            <h6>Bids End Date : @Model.BidEndDate</h6>            
-            <form class="form-inline">
-                <div class="form-group mx-sm-3 mb-2">
-                    <input type="number" class="form-control" id="inputPassword2" placeholder="Bidts">
-                </div>
-                <button type="submit" class="btn btn-primary mb-2">Bids</button>
-            </form>
-
+                @using (Html.BeginForm("AddBids", "Bids", new { ProductId = Model.Id }, FormMethod.Post, null))
+                {
+                    <div class="form-check-inline">
+                        <input class="form-control mr-sm-2" type="number" placeholder="Enter maximum Bids" required name="Bids" id="Bids" aria-label="Search">
+                        <input type="submit" name="submit" value="bids" class="btn btn-outline-success my-2 my-sm-0" />
+                    </div>
+                }
+            </div>
         </div>
     </div>
 </div>
+
 <div class="mb-3"></div>
+
 <div class="card text-center">
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Description</a>
+                <a class="desc nav-link " href="#">Description</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="allbider nav-link" href="#">All Bider</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
         </ul>
     </div>
-    <div class="card-body">
-        <p class="card-text">@Model.Description</p>
+    <div class=" text-Area card-body">
+        <p>
+            @Html.Raw(Model.Description)
+        </p>
     </div>
 </div>
+<div class="mb-3"></div>
+<div class="card">
+    <div class="card-header">
+        Product Reviews
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            @Html.Action("GetAllComment","Bids",new { ProductId=Model.Id})           
+        </blockquote>        
+        @using (Html.BeginForm("Comment", "Bids", new { ProductId = Model.Id }, FormMethod.Post, null))
+        {
+        <form>            
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Write Comment</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="CommentText" placeholder="comment here" rows="3"></textarea>
+            </div>
+            <input type="submit" name="submit" value="Comment" class="btn btn-outline-success my-2 my-sm-0" />
+        </form>
+        }
+    </div>
+</div>
+<div class="mb-3"></div>
+<script>
+    /////////////////////////
+    //////get description////
+    ///////////////////////
+
+    $(".desc").click(
+        function () {
+            $.ajax({
+                url: "/Shop/ProductDecription?id=@Model.Id",
+                method: "get"
+            }).done(function (response) {
+                $(".text-Area").html(response);
+            });
+        });
+
+    ///////////////////////
+    //////get all bider////
+    ///////////////////////
+
+    $(".allbider").click(
+        function () {
+            $.ajax({
+                url: "/Bids/GetAllBiders?ProductId=@Model.Id",
+                method: "get"
+            }).done(function (response) {
+                $(".text-Area").html(response);
+            });
+        });    
+</script>

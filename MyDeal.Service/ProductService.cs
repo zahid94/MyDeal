@@ -83,16 +83,8 @@ namespace MyDeal.Service
         {
             try
             {
-                if (_repository.IsExist(x=>x.Title==product.Title))
-                {
-                    product.Id = -1;
-                    return _repository.SaveToDatabase()>0;
-                }
-                else
-                {
-                    _repository.EditEntity(product);
-                    return _repository.SaveToDatabase() > 0;
-                }
+                _repository.EditEntity(product);
+                return _repository.SaveToDatabase() > 0;
 
             }
             catch (Exception)

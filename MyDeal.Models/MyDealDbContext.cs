@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyDeal.Models.BidsInformation;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -18,5 +19,8 @@ namespace MyDeal.Models
         public DbSet<Product> products { get; set; }
         public DbSet<HomePageSlider> homePageSliders { get; set; }
         public DbSet<AdminRegistration>  registrations { get; set; }
+        public DbSet<Customer> customers { get; set; }
+        public DbSet<Bids> bids { get; set; }
+        public DbSet<Comment> comments { get; set; }
     }
 }

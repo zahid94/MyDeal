@@ -1,4 +1,5 @@
-﻿using MyDeal.AuthenticationFilter;
+﻿using MyDeal.Areas.Admin.AdminAuthenticationFilter;
+using MyDeal.AuthenticationFilter;
 using MyDeal.Models;
 using MyDeal.Service;
 using System;
@@ -9,7 +10,7 @@ using System.Web.Mvc;
 
 namespace MyDeal.Areas.Admin.Controllers
 {
-    [AuthenticationFiltering]
+    [AdminFiltering]
     public class ProductController : Controller
     {
         private readonly IProductService service;
@@ -26,8 +27,7 @@ namespace MyDeal.Areas.Admin.Controllers
         }
         
         // GET: Admin/AddProduct
-        [HttpGet]
-        public ActionResult AddProduct()
+        [HttpGet]       public ActionResult AddProduct()
         {
             ViewBag.CategoryId = new SelectList(dbContext.categories, "Id", "Name");
             return View();

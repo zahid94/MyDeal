@@ -1,0 +1,16 @@
+﻿@model MyDeal.Models.Product
+
+@{
+    ViewBag.Title = "ProductDecription";
+}
+
+
+<div>
+    <dl class="dl-horizontal">      
+
+        <dd>
+            @Html.Raw(Model.Description)
+        </dd>        
+
+    </dl>
+</div>

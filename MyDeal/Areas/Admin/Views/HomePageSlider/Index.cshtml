@@ -38,8 +38,8 @@ else
                     <img src="/Image/@Url.Content(item.ImageName)" height="100" width="200" />
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Remove", new { id = item.Id })
+                    <a href="/admin/HomePageSlider/Edit?id=@item.Id">Edit</a>
+                    <a href="/admin/HomePageSlider/Remove?id=@item.Id">Delete</a>
                 </td>
             </tr>
         }

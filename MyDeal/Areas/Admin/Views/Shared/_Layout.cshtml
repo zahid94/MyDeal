@@ -7,6 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
 </head>
 <body>
@@ -32,7 +33,7 @@
         </div>
 
     </div>
-    
+
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             @*<a class="navbar-brand" href="/Home/Index">MyDeal</a>*@
@@ -42,13 +43,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             </div>
             <ul class="navbar-nav nav-item ">
-                <li><a class="nav-link" href="#">Admin : @Session["Username"]</a></li>
-                <li><a href="/admin/AdminAuthentication/LogOut" class="nav-link">LogOut</a></li>
+                <li><a class="nav-link" href="#" id="NavText">Admin : @Session["Username"]</a></li>
+                <li><a href="/admin/AdminAuthentication/LogOut" class="nav-link" id="NavText">LogOut</a></li>
             </ul>
         </nav>
-        <div class="container container-fluid">
+        <div class=" container container-fluid">
             <div class="row">
-                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <nav class="col-md-2 d-none d-md-block bg-dark">
                     <div class="mb-3"></div>
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
@@ -59,9 +60,9 @@
                                 </a>
                             </li>
                             <li class="nav-item" id="showOrder">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/Admin/DashBoard/GetAllBiders">
                                     <span data-feather="file"></span>
-                                    Orders
+                                    Bids Info
                                 </a>
                             </li>
                             <li class="nav-item" id="showOrder">
@@ -77,7 +78,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" id="showCustomer">
+                                <a class="nav-link" href="/Admin/DashBoard/GetAll" id="showCustomer">
                                     <span data-feather="users"></span>
                                     Customers
                                 </a>
@@ -140,13 +141,11 @@
                     @RenderBody()
                 </div>
             </div>
-                <hr />
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - MyDeal</p>
-                </footer>
-            </div>
+        </div>
     </div>
-    
+    <footer>
+        <p>&copy; @DateTime.Now.Year - MyDeal</p>
+    </footer>
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

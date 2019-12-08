@@ -1,4 +1,5 @@
 ﻿using MyDeal.Models;
+using MyDeal.Models.BidsInformation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace MyDeal.Service
     {
         Product ProductDetails(Expression<Func<Product, bool>> expression);
         IEnumerable<Product> GetAllProduct(Expression<Func<Product, bool>> expression);
+        IEnumerable<Bids> GetFilterBider(Expression<Func<Bids, bool>> expression);
     }
 }

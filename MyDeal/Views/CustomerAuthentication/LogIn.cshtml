@@ -1,0 +1,21 @@
+﻿@model MyDeal.Models.Customer
+
+@{
+    ViewBag.Title = "LogIn";
+}
+
+<body class="AdminLogInBody">
+    <div class="form-signin text-center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })                        
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "User name", @class = "form-control" } })
+            <div class="mb-2"></div>
+            @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
+            <div class="mb-3"></div>
+            <input type="submit" value="Sign In" class="btn btn-lg btn-primary btn-block" />
+            <div class="LogInRegistration">No any account? <a href="/CustomerAuthentication/Registration">Registration</a></div>
+        }
+    </div>    
+</body>
