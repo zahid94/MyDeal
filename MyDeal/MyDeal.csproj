@@ -565,6 +565,8 @@
     <Content Include="Areas\Admin\Views\DashBoard\GetAll.cshtml" />
     <Content Include="Areas\Admin\Views\DashBoard\GetAllBiders.cshtml" />
     <Content Include="Scripts\ckeditor\ckeditor.pack" />
+    <Content Include="Areas\Admin\Views\Product\FilteredProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\CategoryMenuPartials.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -614,6 +616,7 @@
     <Content Include="Views\Bids\GetAllBiders.cshtml" />
     <Content Include="Views\Shop\ProductDecription.cshtml" />
     <Content Include="Views\Bids\GetAllComment.cshtml" />
+    <Content Include="Views\Shop\ProductMenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

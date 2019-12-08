@@ -23,9 +23,15 @@ namespace MyDeal.Controllers
 
         [HttpGet]
         // GET: Shop
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View(service.GetAllProduct(x=>x.Id>0));
+            return View(db.products.Where(x=>x.CategoryId==id).ToList());
+        }
+
+        [HttpGet]
+        public ActionResult ProductMenuPartial()
+        {
+            return PartialView(db.categories.ToList());
         }
 
         [HttpGet]

@@ -1,22 +1,22 @@
 ﻿@model IEnumerable<MyDeal.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = ViewBag.CategoryName;
 }
 <div class="mb-3"></div>
-<h2>All Products</h2>
+<h2>@ViewBag.CategoryName</h2>
 <hr />
 <p>
     <a href="/admin/Product/AddProduct" class="btn btn-outline-secondary my-2 my-sm-0">Add New Product</a>
+    <a href="/admin/Product" class="btn btn-outline-success my-2 my-sm-0">Back to Products</a>
 </p>
+<hr />
 @if (!Model.Any())
 {
-    <h4>There are no any Products.</h4>
+    <h2>There are no Product.</h2>
 }
 else
 {
-    @Html.Action("CategoryMenuPartials", "Product")
-
     <table class="table">
         <tr>
             <th>
@@ -24,7 +24,7 @@ else
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
-            </th>           
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.ActualPrice)
             </th>
@@ -32,7 +32,7 @@ else
                 @Html.DisplayNameFor(model => model.BidEndDate)
             </th>
             <th>
-                Image Name
+                @Html.DisplayNameFor(model => model.ImageName)
             </th>
             <th></th>
         </tr>
@@ -69,10 +69,13 @@ else
                 <td>
                     <a href="/admin/Product/EditProduct?id=@item.Id" class="btn btn-outline-success my-2 my-sm-0">Edit</a>
                     <a href="/admin/Product/ProductDetails?id=@item.Id" class="btn btn-outline-success my-2 my-sm-0">Details</a>
-                    <a href="/admin/Product/RemoveProduct?id=@item.Id" class="btn btn-outline-danger my-2 my-sm-0">Delete</a>                    
+                    <a href="/admin/Product/RemoveProduct?id=@item.Id" class="btn btn-outline-danger my-2 my-sm-0">Delete</a>
                 </td>
             </tr>
         }
 
-    </table>
+    </table>  
+
 }
+    
+

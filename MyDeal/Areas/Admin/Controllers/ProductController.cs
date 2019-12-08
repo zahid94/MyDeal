@@ -20,12 +20,23 @@ namespace MyDeal.Areas.Admin.Controllers
             service = new ProductService();
             dbContext = new MyDealDbContext();
         }
-        // GET: Admin/Product
         public ActionResult Index()
         {
             return View(service.GetAllProduct(x=>x.Id>0));
         }
-        
+        // GET: Admin/Product
+        public ActionResult FilteredProduct(int id)
+        {
+            ViewBag.CategoryName = dbContext.categories.Where(x=>x.Id==id).FirstOrDefault().Name;
+            return View(service.GetFilterProduct(x=>x.CategoryId==id));
+        }
+
+        [HttpGet]
+        public ActionResult CategoryMenuPartials()
+        {
+            return PartialView(dbContext.categories.ToList());
+        }
+
         // GET: Admin/AddProduct
         [HttpGet]       public ActionResult AddProduct()
         {

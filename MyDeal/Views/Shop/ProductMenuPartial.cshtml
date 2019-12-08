@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MyDeal.Models.Category>
+
+@{
+    ViewBag.Title = "ProductMenuPartial";
+}
+
+
+@foreach (var item in Model)
+{
+<a href="/Shop/Index?id=@item.Id">@item.Name</a>
+}

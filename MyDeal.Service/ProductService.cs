@@ -97,5 +97,18 @@ namespace MyDeal.Service
         {
             GC.SuppressFinalize(this);
         }
+
+        public IEnumerable<Product> GetFilterProduct(Expression<Func<Product, bool>> expression)
+        {
+            try
+            {
+                return _repository.GetFilterRecord(expression);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

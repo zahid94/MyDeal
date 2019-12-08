@@ -1,0 +1,6 @@
+﻿@model IEnumerable<MyDeal.Models.Category>
+
+@foreach (var item in Model)
+{
+   <a href="/admin/product/FilteredProduct?id=@item.Id" class="btn btn-outline-secondary">@item.Name</a>
+}
