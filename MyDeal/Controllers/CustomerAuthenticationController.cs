@@ -35,7 +35,7 @@ namespace MyDeal.Controllers
                 {
                     Session["CustomerUserName"] = customer.UserName.ToString();
                     Session["Id"] = repository.GetFirstOrDefault(x => x.UserName == customer.UserName).Id;
-                    var productId = Convert.ToInt32(Session["ProductId"].ToString());
+                    var productId = Convert.ToInt32(Session["ProductId"]);
                     return RedirectToAction("ProductDetails", "Shop", new { id = productId });
                 }
                 else

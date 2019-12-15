@@ -39,7 +39,8 @@ namespace MyDeal.Areas.Admin.Controllers
         }
 
         // GET: Admin/AddProduct
-        [HttpGet]       public ActionResult AddProduct()
+        [HttpGet]
+        public ActionResult AddProduct()
         {
             ViewBag.CategoryId = new SelectList(dbContext.categories, "Id", "Name");
             return View();

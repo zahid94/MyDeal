@@ -27,15 +27,15 @@ namespace MyDeal.Controllers
 
         [AuthenticationFiltering]
         [HttpPost]
-        public ActionResult AddBids(int ProductId)
+        public ActionResult AddBids(WinnerVM model)
         {
             Bids bids = new Bids();
-            bids.ProductId = ProductId;
-            bids.CustomerId = Convert.ToInt32(Session["id"].ToString());
-            bids.BidsPrice = Convert.ToDouble(Request.Form["Bids"]);
+            bids.ProductId = model.ProductId;
+            bids.CustomerId = model.CustomerId;
+            bids.BidsPrice = model.BidsPrice;
             bids.BidsTime = DateTime.Now;
             service.AddBids(bids);
-            return RedirectToAction("ProductDetails", "Shop", new { id = ProductId });
+            return RedirectToAction("ProductDetails", "Shop", new { id = model.ProductId});
         }
 
         [HttpGet]
@@ -46,18 +46,18 @@ namespace MyDeal.Controllers
 
         [AuthenticationFiltering]
         [HttpPost]
-        public ActionResult Comment(int ProductId)
+        public ActionResult Comment(CommentVM model)
         {
             Comment entity = new Comment();            
             try
             {
-                entity.CustomerId= Convert.ToInt32(Session["id"].ToString());
-                entity.ProductId = ProductId;
-                entity.CommentText = Request.Form["CommentText"];
+                entity.CustomerId= model.CustomerId;
+                entity.ProductId = model.ProductId;
+                entity.CommentText = model.CommentText;
                 entity.CommentTime = DateTime.Now;
                 cmdservice.Add(entity);
 
-                return RedirectToAction("ProductDetails", "Shop", new { id = ProductId });
+                return RedirectToAction("ProductDetails", "Shop", new { id = model.ProductId });
             }
             catch (Exception ex)
             {

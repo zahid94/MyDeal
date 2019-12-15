@@ -57,6 +57,8 @@
   <ItemGroup>
     <Compile Include="BidsInformation\Bids.cs" />
     <Compile Include="BidsInformation\Comment.cs" />
+    <Compile Include="BidsInformation\CommentVM.cs" />
+    <Compile Include="BidsInformation\WinnerVM.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Entity.cs" />
@@ -80,6 +82,14 @@
     <Compile Include="Migrations\201912052107592_updatecomment.cs" />
     <Compile Include="Migrations\201912052107592_updatecomment.Designer.cs">
       <DependentUpon>201912052107592_updatecomment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912110821002_bid.cs" />
+    <Compile Include="Migrations\201912110821002_bid.Designer.cs">
+      <DependentUpon>201912110821002_bid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912151959423_update.cs" />
+    <Compile Include="Migrations\201912151959423_update.Designer.cs">
+      <DependentUpon>201912151959423_update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDealDbContext.cs" />
@@ -465,6 +475,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912052107592_updatecomment.resx">
       <DependentUpon>201912052107592_updatecomment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912110821002_bid.resx">
+      <DependentUpon>201912110821002_bid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912151959423_update.resx">
+      <DependentUpon>201912151959423_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

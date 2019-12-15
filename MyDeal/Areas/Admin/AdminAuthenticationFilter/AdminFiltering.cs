@@ -10,7 +10,8 @@ namespace MyDeal.Areas.Admin.AdminAuthenticationFilter
     {
         public void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (string.IsNullOrEmpty(Convert.ToString(filterContext.HttpContext.Session["UserName"])))            {
+            if (string.IsNullOrEmpty(Convert.ToString(filterContext.HttpContext.Session["UserName"])))
+            {
                 
                 filterContext.Result = new RedirectResult("/admin/AdminAuthentication/LogIn");
             }

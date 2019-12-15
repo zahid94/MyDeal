@@ -26,11 +26,17 @@
             </div>
             <div class="mb-3"></div>            
             <div>
+                @{ 
+                    var id = Model.Id;
+                    var customer = Session["id"];
+                }
 
-                @using (Html.BeginForm("AddBids", "Bids", new { ProductId = Model.Id }, FormMethod.Post, null))
+                @using (Html.BeginForm("AddBids", "Bids", FormMethod.Post))
                 {
                     <div class="form-check-inline">
-                        <input class="form-control mr-sm-2" type="number" placeholder="Enter maximum Bids" required name="Bids" id="Bids" aria-label="Search">
+                        <input type="hidden" name="ProductId" value="@id" />
+                        <input type="hidden" name="CustomerId" value="@customer"/>
+                        <input class="form-control mr-sm-2" type="number" placeholder="Enter maximum Bids" required name="BidsPrice"  aria-label="Search">
                         <input type="submit" name="submit" value="bids" class="btn btn-outline-success my-2 my-sm-0" />
                     </div>
                 }
@@ -70,10 +76,12 @@
         <blockquote class="blockquote mb-0">
             @Html.Action("GetAllComment","Bids",new { ProductId=Model.Id})           
         </blockquote>        
-        @using (Html.BeginForm("Comment", "Bids", new { ProductId = Model.Id }, FormMethod.Post, null))
+        @using (Html.BeginForm("Comment", "Bids", FormMethod.Post))
         {
         <form>            
             <div class="form-group">
+                <input type="hidden" name="ProductId" value="@id" />
+                <input type="hidden" name="CustomerId" value="@customer" />
                 <label for="exampleFormControlTextarea1">Write Comment</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" name="CommentText" placeholder="comment here" rows="3"></textarea>
             </div>
