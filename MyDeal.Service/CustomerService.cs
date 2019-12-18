@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.ModelBinding;
@@ -54,7 +57,23 @@ namespace MyDeal.Service
                 else
                 {
                     repository.AddEntity(Customer);
+
+                    MailMessage mail = new MailMessage(ConfigurationManager.AppSettings["Email"].ToString(),Customer.Email);
+                    mail.Subject = "Welcome to MyDeal";
+                    mail.Body ="Dear Client "+ Customer.UserName + " Thanks You very much for registration our site. Now you are valid all of rules.";
+                    mail.IsBodyHtml = false;
+
+                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                    smtp.EnableSsl = true;
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+                    NetworkCredential credential = new NetworkCredential(ConfigurationManager.AppSettings["Email"].ToString(), ConfigurationManager.AppSettings["password"].ToString());
+                    smtp.UseDefaultCredentials = false;
+                    smtp.Credentials = credential;
+                    smtp.Send(mail);
+
                     repository.SaveToDatabase();
+
                     return Customer;
                 }
             }

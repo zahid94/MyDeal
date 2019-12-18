@@ -23,6 +23,10 @@ namespace MyDeal.Models
         [DataType(DataType.Password)]
         [Required]
         public string PassWord { get; set; }
+        [MaxLength(100)]
+        public string EmailSubject { get; set; }
+        [MaxLength(250)]
+        public string EmailBody { get; set; }
         [DataType(DataType.Password)]
         [Compare("PassWord")]        
         public string ConfirmPassWord { get; set; }

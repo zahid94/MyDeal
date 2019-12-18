@@ -569,6 +569,7 @@
     <Content Include="Areas\Admin\Views\Product\FilteredProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Product\CategoryMenuPartials.cshtml" />
     <Content Include="Areas\Admin\Views\DashBoard\AllWinner.cshtml" />
+    <Content Include="Areas\Admin\Views\DashBoard\CustomerDetails.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

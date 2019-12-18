@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace MyDeal.Areas.Admin.Controllers
 {
-    //[AdminFiltering]    
+    [AdminFiltering]    
     public class DashBoardController : Controller
     {
         private readonly ICustomerService service;
@@ -34,6 +34,11 @@ namespace MyDeal.Areas.Admin.Controllers
         public ActionResult GetAll()
         {
             return View(service.GetAll(x=>x.Id>0));
+        }
+        [HttpGet]
+        public ActionResult CustomerDetails(int id)
+        {
+            return View(dbContext.customers.FirstOrDefault(x=>x.Id==id));
         }
 
         [HttpGet]

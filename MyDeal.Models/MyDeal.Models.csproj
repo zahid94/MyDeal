@@ -91,6 +91,10 @@
     <Compile Include="Migrations\201912151959423_update.Designer.cs">
       <DependentUpon>201912151959423_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912181813157_emailsend.cs" />
+    <Compile Include="Migrations\201912181813157_emailsend.Designer.cs">
+      <DependentUpon>201912181813157_emailsend.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDealDbContext.cs" />
     <Compile Include="Page.cs" />
@@ -481,6 +485,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912151959423_update.resx">
       <DependentUpon>201912151959423_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912181813157_emailsend.resx">
+      <DependentUpon>201912181813157_emailsend.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

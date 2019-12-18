@@ -102,7 +102,17 @@ namespace MyDeal.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult ProductDetails(int id)
         {
-            return View(service.ProductDetails(x => x.Id == id));
+            var ProductDetails = service.ProductDetails(x => x.Id == id);            
+            if (dbContext.bids.FirstOrDefault(x => x.ProductId == id) != null)
+            {
+                ProductDetails.CurrentPrice = dbContext.bids.Where(x => x.ProductId == id).Max(m => m.BidsPrice);
+            }
+            else
+            {
+                ProductDetails.CurrentPrice = ProductDetails.ActualPrice;
+            }
+             
+            return View(ProductDetails);
         }
 
         // GET: Admin/ProductDetails

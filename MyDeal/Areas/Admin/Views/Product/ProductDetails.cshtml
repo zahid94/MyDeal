@@ -8,23 +8,15 @@
 
 <div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.Name)
-        </dt>
-
+    <dl class="dl-horizontal"> 
         <dd>
-            @Html.DisplayFor(model => model.Category.Name)
+            <img src="/Image/@Url.Content(Model.ImageName)" height="100" width="120" />
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
-
+        
         <dt>
             @Html.DisplayNameFor(model => model.Description)
         </dt>
@@ -32,57 +24,26 @@
         <dd>
             @Html.Raw(Model.Description)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TotalBids)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TotalBids)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ActualPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ActualPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CurrentPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BidEndDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BidEndDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageName)
-        </dd>
-
     </dl>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Actual Price</th>
+            <th>Current Price</th>
+            <th>Bids End Date</th>
+        </tr>
+    </thead>
+    <tbody class="bg-info">
+        <tr>
+            <td>@Model.ActualPrice</td>
+            <td>@Model.CurrentPrice</td>
+            <td>@Model.BidEndDate</td>
+        </tr>
+    </tbody>
+</table>
+
 <div class="form-group">
     <a href="/admin/Product" class="btn btn-outline-success my-2 my-sm-0">Back to Products</a>
 </div>
