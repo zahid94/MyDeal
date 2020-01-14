@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MyDeal.Models.BidsInformation.Bids>
+
+@{
+    ViewBag.Title = "MyBids";
+}
+
+@if (!Model.Any())
+{
+    <p class="nobided">Sorry No Product you Bids.</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BidsPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BidsTime)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BidsPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BidsTime)
+        </td>
+        <td></td>
+    </tr>
+}
+
+    </table>
+}
+

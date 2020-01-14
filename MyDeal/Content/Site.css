@@ -74,7 +74,13 @@ a:link {
 .img-fluid {
     height: 360px;
 }
-
+.nobided{
+    margin:183px 400px 183px 400px;
+    color:red;
+}
+.paget{
+    padding:4px 5px 2px 4px;
+}
 #image {
     margin: 50px;
 }

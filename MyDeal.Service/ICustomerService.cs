@@ -12,7 +12,8 @@ namespace MyDeal.Service
     {
         Customer Registration(Customer Customer);
         bool UpdatePassWord(Customer Customer);
+        bool UpdateCustomer(Customer customer);
         Customer CustomerDetails(Expression<Func<Customer, bool>> expression);
-        IEnumerable<Customer> GetAll(Expression<Func<Customer, bool>> expression);
+        IEnumerable<Customer> GetAll(Expression<Func<Customer, bool>> expression);        
     }
 }

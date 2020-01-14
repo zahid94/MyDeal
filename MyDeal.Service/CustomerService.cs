@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.ModelBinding;
 using MyDeal.Models;
 using MyDeal.Repository;
+using MyDeal.Service.Messaging;
 
 namespace MyDeal.Service
 {
@@ -17,14 +18,17 @@ namespace MyDeal.Service
     {
         private readonly IGenericRepository<Customer> repository;
         private readonly MyDealDbContext dbcontext;
+        private readonly EmailSending email;
+        
         public CustomerService()
         {
             repository = new GenericRepository<Customer>();
             dbcontext = new MyDealDbContext();
+            email = new EmailSending();
         }
         public Customer CustomerDetails(Expression<Func<Customer, bool>> expression)
         {
-            throw new NotImplementedException();
+            return repository.GetFirstOrDefault(expression);
         }
 
         public void Dispose()
@@ -57,20 +61,12 @@ namespace MyDeal.Service
                 else
                 {
                     repository.AddEntity(Customer);
+                    string Email = Customer.Email;
+                    string userName = Customer.UserName;
+                    string subject = "welcome to mydeal";
+                    string emailBody = " thanks you very much . it is your password ";
 
-                    MailMessage mail = new MailMessage(ConfigurationManager.AppSettings["Email"].ToString(),Customer.Email);
-                    mail.Subject = "Welcome to MyDeal";
-                    mail.Body ="Dear Client "+ Customer.UserName + " Thanks You very much for registration our site. Now you are valid all of rules.";
-                    mail.IsBodyHtml = false;
-
-                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                    smtp.EnableSsl = true;
-                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-                    NetworkCredential credential = new NetworkCredential(ConfigurationManager.AppSettings["Email"].ToString(), ConfigurationManager.AppSettings["password"].ToString());
-                    smtp.UseDefaultCredentials = false;
-                    smtp.Credentials = credential;
-                    smtp.Send(mail);
+                    email.Email(Email,userName,subject,emailBody);                    
 
                     repository.SaveToDatabase();
 
@@ -88,6 +84,20 @@ namespace MyDeal.Service
         public bool UpdatePassWord(Customer Customer)
         {
             throw new NotImplementedException();
+        }
+
+        public bool UpdateCustomer(Customer customer)
+        {
+            try
+            {
+                repository.EditEntity(customer);
+                return repository.SaveToDatabase() > 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

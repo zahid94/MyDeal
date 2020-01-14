@@ -4,6 +4,7 @@
     ViewBag.Title = "Product Details";
 }
 
+
 <div class="container">
     <div class="row">
 
@@ -24,9 +25,9 @@
                     <li class="list-group-item"><h6>Bids End : @Model.BidEndDate </h6></li>
                 </ul>
             </div>
-            <div class="mb-3"></div>            
+            <div class="mb-3"></div>
             <div>
-                @{ 
+                @{
                     var id = Model.Id;
                     var customer = Session["id"];
                 }
@@ -35,8 +36,8 @@
                 {
                     <div class="form-check-inline">
                         <input type="hidden" name="ProductId" value="@id" />
-                        <input type="hidden" name="CustomerId" value="@customer"/>
-                        <input class="form-control mr-sm-2" type="number" placeholder="Enter maximum Bids" required name="BidsPrice"  aria-label="Search">
+                        <input type="hidden" name="CustomerId" value="@customer" />
+                        <input class="form-control mr-sm-2" type="number" placeholder="Enter maximum Bids" required name="BidsPrice" aria-label="Search">
                         <input type="submit" name="submit" value="bids" class="btn btn-outline-success my-2 my-sm-0" />
                     </div>
                 }
@@ -74,19 +75,19 @@
     </div>
     <div class="card-body">
         <blockquote class="blockquote mb-0">
-            @Html.Action("GetAllComment","Bids",new { ProductId=Model.Id})           
-        </blockquote>        
+            @Html.Action("GetAllComment", "Bids", new { ProductId = Model.Id })
+        </blockquote>
         @using (Html.BeginForm("Comment", "Bids", FormMethod.Post))
         {
-        <form>            
-            <div class="form-group">
-                <input type="hidden" name="ProductId" value="@id" />
-                <input type="hidden" name="CustomerId" value="@customer" />
-                <label for="exampleFormControlTextarea1">Write Comment</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="CommentText" placeholder="comment here" rows="3"></textarea>
-            </div>
-            <input type="submit" name="submit" value="Comment" class="btn btn-outline-success my-2 my-sm-0" />
-        </form>
+            <form>
+                <div class="form-group">
+                    <input type="hidden" name="ProductId" value="@id" />
+                    <input type="hidden" name="CustomerId" value="@customer" />
+                    <label for="exampleFormControlTextarea1">Write Comment</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="CommentText" placeholder="comment here" rows="3"></textarea>
+                </div>
+                <input type="submit" name="submit" value="Comment" class="btn btn-outline-success my-2 my-sm-0" />
+            </form>
         }
     </div>
 </div>
@@ -95,7 +96,6 @@
     /////////////////////////
     //////get description////
     ///////////////////////
-
     $(".desc").click(
         function () {
             $.ajax({
@@ -105,11 +105,9 @@
                 $(".text-Area").html(response);
             });
         });
-
     ///////////////////////
     //////get all bider////
     ///////////////////////
-
     $(".allbider").click(
         function () {
             $.ajax({
@@ -118,5 +116,5 @@
             }).done(function (response) {
                 $(".text-Area").html(response);
             });
-        });    
+        });
 </script>

@@ -22,6 +22,7 @@ namespace MyDeal.Models
         public DbSet<Customer> customers { get; set; }
         public DbSet<Bids> bids { get; set; }
         public DbSet<Comment> comments { get; set; }
+        public DbSet<GallaryImage> gallaryImages { get; set; }
 
     }
 }

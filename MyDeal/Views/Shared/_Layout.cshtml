@@ -32,11 +32,14 @@
                     }
                     <a href="#">Help</a>
                     <a href="#">@DateTime.Now.Hour : @DateTime.Now.Minute</a>
-                </div>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                </div>               
+                <p>
+                    @using (Html.BeginForm("SearchCategory", "Shop", FormMethod.Get))
+                    {                        
+                        <input id="Searching" name="Searching" type="text" value="" placeholder="search with category" aria-label="Search">
+                        <input type="submit" name="name" value="Search" class="btn btn-outline-success my-2 my-sm-0"/>
+                    }
+                </p>
             </div>
         </div>
 
@@ -58,7 +61,7 @@
             <ul class="navbar-nav nav-item ">
                 @if (Session["CustomerUserName"] != null)
                 {
-                    <li><a class="nav-link" href="#" id="NavText">Welcome : @Session["CustomerUserName"].ToString()</a></li>
+                    <li><a class="nav-link" href="/CustomerInfo/Details?id=@Session["id"]" id="NavText">@Session["CustomerUserName"].ToString()</a></li>
                     <li><a href="/CustomerAuthentication/LogOut" class="nav-link" id="NavText">LogOut</a></li>
                 }
             </ul>

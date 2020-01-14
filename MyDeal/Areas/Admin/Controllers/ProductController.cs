@@ -48,16 +48,27 @@ namespace MyDeal.Areas.Admin.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddProduct(Product product , HttpPostedFileBase file)
+        public ActionResult AddProduct(Product product , HttpPostedFileBase file,IEnumerable<HttpPostedFileBase> files)
         {
             ViewBag.CategoryId = new SelectList(dbContext.categories, "Id", "Name",product.Id);
             if (ModelState.IsValid)
             {
                 if (file != null)
-                {
-                    
+                {                    
                     file.SaveAs(HttpContext.Server.MapPath("~/Image/") + file.FileName);
                     product.ImageName = file.FileName;
+                }
+                if (files !=null)
+                {
+                    var gallary = new List<GallaryImage>();
+                    foreach (var singleImage in files)
+                    {
+                        singleImage.SaveAs(HttpContext.Server.MapPath("~/Image/Gallery/" + singleImage.FileName));
+                        var img = new GallaryImage { ProductId = product.Id };
+                        img.ImageName = singleImage.FileName;
+                        gallary.Add(img);
+                    }
+                    product.GallaryImages = gallary;                                                                  
                 }
                 service.AddProduct(product);
                 return RedirectToAction("AddProduct");

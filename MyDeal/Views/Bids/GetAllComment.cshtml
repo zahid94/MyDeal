@@ -11,7 +11,7 @@ else
     foreach (var item in Model)
     {
         <p>@item.CommentText</p>
-        <p class="blockquote-footer">@item.Customer.UserName  comment this at<cite title="Source Title"> @item.CommentTime</cite></p>
+        <p class="blockquote-footer">@item.Customer.UserName at<cite title="Source Title"> @item.CommentTime</cite></p>
         <hr />
     }
 }

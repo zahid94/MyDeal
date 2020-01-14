@@ -1,4 +1,7 @@
-﻿@model IEnumerable<MyDeal.Models.Product>
+﻿
+@model  IPagedList<MyDeal.Models.Product>
+@using PagedList.Mvc;
+@using PagedList;
 
 @{
     ViewBag.Title = "Home";
@@ -17,7 +20,8 @@
                         <img class="card-img-top" src="/Image/@Url.Content(product.ImageName)" height="160" width="170" alt="">
                         <div class="card-body">
                             <h4 class="card-title">@product.Title</h4>
-                            <div><span class="takaicon">৳</span>@product.ActualPrice  
+                            <div>
+                                <span class="takaicon">৳</span>@product.ActualPrice
                             </div>
                         </div>
                     </div>
@@ -25,5 +29,9 @@
             </div>
         }
     </div>
+</div>
+
+<div>
+    @Html.PagedListPager(Model, Page => Url.Action("Index", "Shop", new { Page ,@class="paget"}))
 </div>
 

@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace MyDeal.Controllers
 {
@@ -24,15 +26,33 @@ namespace MyDeal.Controllers
 
         [HttpGet]
         // GET: Shop
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(service.GetAllProduct(x=>x.Id>0));
+            return View(service.GetAllProduct(x=>x.Id>0).ToPagedList(page ?? 1,3));
         }
 
         public ActionResult GetFilterProduct(int id)
         {
             ViewBag.CategoryName = db.categories.Where(x => x.Id == id).FirstOrDefault().Name;
             return View(service.GetFilterProduct(x => x.CategoryId == id));
+        }
+
+        [HttpGet]
+        public ActionResult SearchCategory( Search search)
+        {
+            
+            if (!String.IsNullOrEmpty(search.Searching.Trim()))
+            {
+                var catlist = db.categories.Where(x => x.Name.Contains(search.Searching.Trim())).FirstOrDefault();
+                ViewBag.CategoryName = catlist.Name;
+                int id = catlist.Id;
+                var result = service.GetFilterProduct(x => x.CategoryId == id);
+                return View(result);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]
@@ -60,14 +80,15 @@ namespace MyDeal.Controllers
                 ModelState.AddModelError("","Please added Highest Bids.");
                 product.CurrentPrice = product.ActualPrice;
             }
-            
+
+            //ViewBag.gallery = db.gallaryImages.Where(s=>s.ProductId==id).ToList();
             return View(product);
         }
 
         [HttpGet]
-        public ActionResult ProductDecription( int id)
+        public ActionResult ProductDecription(int id)
         {
-            return PartialView(service.ProductDetails(x=>x.Id==id));
+            return PartialView(service.ProductDetails(x => x.Id == id));
         }
     }
 }

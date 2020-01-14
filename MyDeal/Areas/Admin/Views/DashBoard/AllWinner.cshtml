@@ -5,6 +5,12 @@
 }
 
 <h2>AllWinner</h2>
+@if (TempData["sm"] != null)
+{
+    <div class="text-success">
+        @TempData["sm"]
+    </div>
+}
 
 <table class="table">
     <tr>
@@ -26,23 +32,34 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <a href="/admin/Product/ProductDetails?id=@item.ProductId" >@item.ProductName</a>
-        </td>
-        <td>
-            <a href="/admin/DashBoard/CustomerDetails?id=@item.CustomerId">@item.CustomerName</a>
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="/admin/Product/ProductDetails?id=@item.ProductId">@item.ProductName</a>
+            </td>
+            <td>
+                <a href="/admin/DashBoard/CustomerDetails?id=@item.CustomerId">@item.CustomerName</a>
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.BidsPrice)
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BidsPrice)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.BidsTime)
-        </td>
-    </tr>
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.BidsTime)
+            </td>
+            <td>
+                @using (Html.BeginForm("SendingMail", "DashBoard", FormMethod.Post))
+                {
+                    <input type="hidden" name="ProductId" value="@item.ProductId" />
+                    <input type="hidden" name="productPrice" value="@item.BidsPrice" />
+                    <input type="hidden" name="ProductName" value="@item.ProductName" />
+                    <input type="hidden" name="CustomerId" value="@item.CustomerId" />
+                    <input type="submit" name="submit" value="Email" class="btn btn-outline-success my-2 my-sm-0" />
+                }
+            </td>
+        </tr>
+    }
 
 </table>

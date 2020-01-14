@@ -27,5 +27,6 @@ namespace MyDeal.Models
         public virtual Category Category { get; set; }
         public virtual ICollection<Bids> Bids { get; set; }
         public virtual ICollection<Comment> Comment { get; set; }
+        public virtual ICollection<GallaryImage> GallaryImages { get; set; }
     }
 }

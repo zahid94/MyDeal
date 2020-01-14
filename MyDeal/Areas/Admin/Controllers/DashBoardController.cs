@@ -3,6 +3,7 @@ using MyDeal.AuthenticationFilter;
 using MyDeal.Models;
 using MyDeal.Models.BidsInformation;
 using MyDeal.Service;
+using MyDeal.Service.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -18,11 +19,13 @@ namespace MyDeal.Areas.Admin.Controllers
         private readonly ICustomerService service;
         private readonly IBidsService bidsService;
         private readonly MyDealDbContext dbContext;
+        private readonly EmailSending _email;
         public DashBoardController()
         {
             service = new CustomerService();
             bidsService = new BidsService();
             dbContext = new MyDealDbContext();
+            _email = new EmailSending();
         }
         // GET: Admin/DashBoard
         public ActionResult Index()
@@ -35,6 +38,7 @@ namespace MyDeal.Areas.Admin.Controllers
         {
             return View(service.GetAll(x=>x.Id>0));
         }
+
         [HttpGet]
         public ActionResult CustomerDetails(int id)
         {
@@ -66,5 +70,25 @@ namespace MyDeal.Areas.Admin.Controllers
             return View(model);
          }
 
+        [HttpPost]
+        public ActionResult SendingMail(Email email)
+        {
+            try
+            {
+                var customerInfo = dbContext.customers.FirstOrDefault(x => x.Id == email.CustomerId);
+                string Email = customerInfo.Email;
+                string UserName = customerInfo.UserName;
+                string MailSubject = "welcome Sir";
+                string MailBody = " your bidded this product. ProductId: " + email.ProductId + " ProductName:" + email.ProductName + " .you are highest bidder .so you are selected for this product. welcome to you for win. Please collect your product.";
+                _email.Email(Email, UserName, MailSubject, MailBody);
+                TempData["sm"] = "succesful";
+                return RedirectToAction("AllWinner");
+            }
+            catch (Exception)
+            {
+                TempData["sm"] = "failed";
+                return RedirectToAction("AllWinner");
+            }
+        }
     }
 }
