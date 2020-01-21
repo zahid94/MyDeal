@@ -21,8 +21,10 @@ namespace MyDeal.Models
         public double CurrentPrice { get; set; }
         [Required]
         public DateTime BidEndDate { get; set; }
+        public bool DisableBids { get; set; }
         public decimal Rating { get; set; }        
         public string ImageName { get; set; }
+
 
         public virtual Category Category { get; set; }
         public virtual ICollection<Bids> Bids { get; set; }

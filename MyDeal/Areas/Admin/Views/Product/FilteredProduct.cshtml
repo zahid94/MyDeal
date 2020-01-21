@@ -32,6 +32,9 @@ else
                 @Html.DisplayNameFor(model => model.BidEndDate)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DisableBids)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ImageName)
             </th>
             <th></th>
@@ -39,39 +42,42 @@ else
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @{
-                        System.Text.StringBuilder sb = new System.Text.StringBuilder(item.Description);
-                        int len = sb.Length;
-                    }
-                    @if (len > 10)
-                    {
-                        @Html.Raw(item.Description.Replace(item.Description.Substring(9), " . . . "))
-                    }
-                    else
-                    {
-                        @Html.Raw(item.Description)
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ActualPrice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BidEndDate)
-                </td>
-                <td>
-                    <img src="/Image/@Url.Content(item.ImageName)" height="80" width="100" />
-                </td>
-                <td>
-                    <a href="/admin/Product/EditProduct?id=@item.Id" class="btn btn-outline-success my-2 my-sm-0">Edit</a>
-                    <a href="/admin/Product/ProductDetails?id=@item.Id" class="btn btn-outline-success my-2 my-sm-0">Details</a>
-                    <a href="/admin/Product/RemoveProduct?id=@item.Id" class="btn btn-outline-danger my-2 my-sm-0">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @{
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder(item.Description);
+                    int len = sb.Length;
+                }
+                @if (len > 10)
+                {
+                    @Html.Raw(item.Description.Replace(item.Description.Substring(9), " . . . "))
+                }
+                else
+                {
+                    @Html.Raw(item.Description)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BidEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisableBids)
+            </td>
+            <td>
+                <img src="/Image/@Url.Content(item.ImageName)" height="80" width="100" />
+            </td>
+            <td>
+                <a href="/admin/Product/EditProduct?id=@item.Id" class="btn btn-outline-success my-2 my-sm-0">Edit</a>
+                <a href="/admin/Product/ProductDetails?id=@item.Id" class="btn btn-outline-success my-2 my-sm-0">Details</a>
+                <a href="/admin/Product/RemoveProduct?id=@item.Id" class="btn btn-outline-danger my-2 my-sm-0">Delete</a>
+            </td>
+        </tr>
         }
 
     </table>  

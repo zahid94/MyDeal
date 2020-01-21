@@ -1,4 +1,5 @@
 ﻿using MyDeal.Models;
+using MyDeal.Models.BidsInformation;
 using MyDeal.Service;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace MyDeal.Controllers
     {
         private readonly ICustomerService service;
         private readonly IBidsService bidsService;
+        MyDealDbContext db = new MyDealDbContext();
         public CustomerInfoController()
         {
             service = new CustomerService();
@@ -74,20 +76,22 @@ namespace MyDeal.Controllers
         }
 
         // GET: CustomerInfo/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
 
         // POST: CustomerInfo/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Bids bids)
         {
             try
             {
                 // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                var bidsinfo = db.bids.Where(x => x.CustomerId == bids.CustomerId && x.ProductId == bids.ProductId).FirstOrDefault();
+                //db.Entry(bidsinfo).State = System.Data.Entity.EntityState.Deleted;               
+                bidsService.RemoveBids(bidsinfo);      
+                return RedirectToAction("Details", new { id=bids.CustomerId });
             }
             catch
             {

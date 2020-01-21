@@ -47,9 +47,7 @@ namespace MyDeal.Controllers
                     Session["CustomerUserName"] = customer.UserName.ToString();
                     Session["Id"] = repository.GetFirstOrDefault(x => x.UserName == customer.UserName).Id;
                     return RedirectToAction("Index", "Shop");
-                }
-                
-
+                }   
             }
             else
             {
@@ -92,8 +90,7 @@ namespace MyDeal.Controllers
                     service.Registration(customer);
                     Session["Id"] = repository.GetFirstOrDefault(x => x.UserName == customer.UserName).Id;
                     return RedirectToAction("Index", "Shop");
-                }              
-                
+                }     
             }
             else
             {

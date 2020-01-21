@@ -57,5 +57,19 @@ namespace MyDeal.Service
                 throw;
             }
         }
+
+        public bool RemoveBids(Bids bids)
+        {
+            try
+            {
+                repository.RemoveEntity(bids);
+                return repository.SaveToDatabase() > 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

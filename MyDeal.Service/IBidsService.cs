@@ -13,7 +13,7 @@ namespace MyDeal.Service
         Bids AddBids(Bids Bids);
 
         //bool UpdateCategory(Category Category);
-        //bool RemoveCategory(Category Category);
+        bool RemoveBids(Bids bids);
         //Category CategoryDetails(Expression<Func<Category, bool>> expression);
         //IEnumerable<Bids> GetAll(Expression<Func<Bids, bool>> expression);
         IEnumerable<Bids> GetFilterBider(Expression<Func<Bids, bool>> expression);

@@ -28,7 +28,7 @@ namespace MyDeal.Controllers
         // GET: Shop
         public ActionResult Index(int? page)
         {
-            return View(service.GetAllProduct(x=>x.Id>0).ToPagedList(page ?? 1,3));
+            return View(service.GetAllProduct(x=>x.Id>0).ToPagedList(page ?? 1,4));
         }
 
         public ActionResult GetFilterProduct(int id)
@@ -44,10 +44,8 @@ namespace MyDeal.Controllers
             if (!String.IsNullOrEmpty(search.Searching.Trim()))
             {
                 var catlist = db.categories.Where(x => x.Name.Contains(search.Searching.Trim())).FirstOrDefault();
-                ViewBag.CategoryName = catlist.Name;
-                int id = catlist.Id;
-                var result = service.GetFilterProduct(x => x.CategoryId == id);
-                return View(result);
+                ViewBag.CategoryName = catlist.Name;                               
+                return View(service.GetFilterProduct(x => x.CategoryId == catlist.Id));
             }
             else
             {

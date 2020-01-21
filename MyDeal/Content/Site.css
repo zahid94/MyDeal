@@ -90,7 +90,19 @@ a:link {
 .dl-horizontal dt {
     white-space: normal;
 }
-
+.leftContain {
+    float: left;
+    width: 10%;
+    padding: 15px;
+    background-color: #2d334e;
+    color:white;
+}
+.mainContain{
+    float:left;
+    width:86%;
+    padding-left:15px;
+    
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select {

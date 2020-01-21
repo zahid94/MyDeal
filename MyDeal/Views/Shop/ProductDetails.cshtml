@@ -30,15 +30,17 @@
                 @{
                     var id = Model.Id;
                     var customer = Session["id"];
-                }
+                    var disable = Model.DisableBids == true ? "Disabled" : "";
+                    var title = Model.DisableBids == true ? "Something is wrong here please try again leter" : "";
+                }              
 
                 @using (Html.BeginForm("AddBids", "Bids", FormMethod.Post))
                 {
                     <div class="form-check-inline">
                         <input type="hidden" name="ProductId" value="@id" />
                         <input type="hidden" name="CustomerId" value="@customer" />
-                        <input class="form-control mr-sm-2" type="number" placeholder="Enter maximum Bids" required name="BidsPrice" aria-label="Search">
-                        <input type="submit" name="submit" value="bids" class="btn btn-outline-success my-2 my-sm-0" />
+                        <input class="form-control mr-sm-2" type="number" title="@title" @disable placeholder="Enter maximum Bids" required name="BidsPrice" aria-label="Search">
+                        <input type="submit" name="submit" value="bids" title="@title" @disable class="btn btn-outline-success my-2 my-sm-0" />
                     </div>
                 }
             </div>

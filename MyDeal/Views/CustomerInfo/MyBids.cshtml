@@ -6,7 +6,7 @@
 
 @if (!Model.Any())
 {
-    <p class="nobided">Sorry No Product you Bids.</p>
+    <p class="nobided">Sorry No Product do you Bids.</p>
 }
 else
 {
@@ -36,7 +36,14 @@ else
         <td>
             @Html.DisplayFor(modelItem => item.BidsTime)
         </td>
-        <td></td>
+        <td>
+            @using (Html.BeginForm("Delete", "CustomerInfo",FormMethod.Post))
+            {
+            <input type="hidden" name="CustomerId" value="@item.CustomerId" />            
+            <input type="hidden" name="ProductId" value="@item.ProductId" />
+            <input type="submit" name="WithDrow" value="WithDrow" />
+            }
+        </td>
     </tr>
 }
 
