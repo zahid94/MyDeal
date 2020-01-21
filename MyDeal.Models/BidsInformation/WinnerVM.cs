@@ -13,7 +13,7 @@ namespace MyDeal.Models.BidsInformation
         public string CustomerName { get; set; }
         public int ProductId { get; set; }        
         public string ProductName { get; set; }        
-        public double BidsPrice { get; set; }
+        public double BidsPrice { get; set; }        
         public DateTime BidsTime { get; set; }
     }
 }

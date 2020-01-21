@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using MyDeal.AuthenticationFilter;
+using MyDeal.Models;
 using MyDeal.Models.BidsInformation;
 using MyDeal.Service;
 using System;
@@ -14,10 +15,12 @@ namespace MyDeal.Controllers
     {
         private readonly IBidsService service;
         private readonly ICommentService cmdservice;
+        private readonly MyDealDbContext db;
         public BidsController()
         {
             service = new BidsService();
             cmdservice = new CommentService();
+            db = new MyDealDbContext();
         }
         // GET: Bids
         public ActionResult Index()
@@ -34,6 +37,7 @@ namespace MyDeal.Controllers
             bids.CustomerId = model.CustomerId;
             bids.BidsPrice = model.BidsPrice;
             bids.BidsTime = DateTime.Now;
+            bids.BidsEndDate = db.products.FirstOrDefault(x => x.Id == model.ProductId).BidEndDate;
             service.AddBids(bids);
             return RedirectToAction("ProductDetails", "Shop", new { id = model.ProductId});
         }

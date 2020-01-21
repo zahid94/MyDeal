@@ -21,8 +21,8 @@ namespace MyDeal.Controllers
         }
         // GET: CustomerInfo
         public ActionResult MyBids( int id)
-        {
-            return View(bidsService.GetFilterBider(x=>x.CustomerId==id));
+        {                      
+            return View(bidsService.GetFilterBider(x => x.CustomerId == id));
         }
 
         // GET: CustomerInfo/Details/5
@@ -75,12 +75,6 @@ namespace MyDeal.Controllers
             }
         }
 
-        // GET: CustomerInfo/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
         // POST: CustomerInfo/Delete/5
         [HttpPost]
         public ActionResult Delete(Bids bids)
@@ -89,8 +83,9 @@ namespace MyDeal.Controllers
             {
                 // TODO: Add delete logic here
                 var bidsinfo = db.bids.Where(x => x.CustomerId == bids.CustomerId && x.ProductId == bids.ProductId).FirstOrDefault();
-                //db.Entry(bidsinfo).State = System.Data.Entity.EntityState.Deleted;               
-                bidsService.RemoveBids(bidsinfo);      
+                db.Entry(bidsinfo).State = System.Data.Entity.EntityState.Deleted;
+                db.SaveChanges();
+                //bidsService.RemoveBids(bidsinfo);
                 return RedirectToAction("Details", new { id=bids.CustomerId });
             }
             catch

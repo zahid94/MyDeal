@@ -111,6 +111,10 @@
     <Compile Include="Migrations\202001211338182_update bidsdisable.Designer.cs">
       <DependentUpon>202001211338182_update bidsdisable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001211643110_updateBids.cs" />
+    <Compile Include="Migrations\202001211643110_updateBids.Designer.cs">
+      <DependentUpon>202001211643110_updateBids.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDealDbContext.cs" />
     <Compile Include="Page.cs" />
@@ -512,6 +516,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001211338182_update bidsdisable.resx">
       <DependentUpon>202001211338182_update bidsdisable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001211643110_updateBids.resx">
+      <DependentUpon>202001211643110_updateBids.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

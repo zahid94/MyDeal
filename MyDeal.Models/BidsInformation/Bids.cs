@@ -15,6 +15,7 @@ namespace MyDeal.Models.BidsInformation
         [Required]
         public double BidsPrice { get; set; }
         public DateTime BidsTime { get; set; }
+        public DateTime BidsEndDate { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual Product  Product{ get; set; }

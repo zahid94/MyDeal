@@ -21,30 +21,41 @@ else
             <th>
                 @Html.DisplayNameFor(model => model.BidsTime)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BidsEndDate)
+            </th>
             <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BidsPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BidsTime)
-        </td>
-        <td>
-            @using (Html.BeginForm("Delete", "CustomerInfo",FormMethod.Post))
-            {
-            <input type="hidden" name="CustomerId" value="@item.CustomerId" />            
-            <input type="hidden" name="ProductId" value="@item.ProductId" />
-            <input type="submit" name="WithDrow" value="WithDrow" />
-            }
-        </td>
-    </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BidsPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BidsTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BidsEndDate)
+            </td>
+            <td>
+                @{
+                    var disable = item.BidsEndDate <= DateTime.Now ? "disabled" : "";
+                    var title = item.BidsEndDate <= DateTime.Now ? "End the Bids time" : "";
+                }
+
+                @using (Html.BeginForm("Delete", "CustomerInfo", FormMethod.Post))
+                {
+                    <input type="hidden" name="CustomerId" value="@item.CustomerId" />
+                    <input type="hidden" name="ProductId" value="@item.ProductId" />
+                    <input type="submit" name="WithDrow" @disable  title="@title" value="Cancel Bid" />
+                }
+            </td>
+        </tr>
 }
 
     </table>
