@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<MyDeal.Models.Product>
 
 @{
-    ViewBag.Title = ViewBag.CategoryName;
+                /**/
+
+                ViewBag.Title = ViewBag.CategoryName;
 }
 
 @if (!Model.Any())
@@ -11,10 +13,13 @@
 else
 {
     <div class="mb-3"></div>
-    <div class="text-center">
-        @ViewBag.CategoryName
-    </div>
-    <hr />
+
+    <div class="ActionGelleryTitle">
+        <h2>@ViewBag.CategoryName</h2>
+        <div class="icon">
+            &#8212; &#8212; &#8212;
+        </div>
+    </div> 
     <div class="container">
         <div class="row">
             @foreach (var product in Model)

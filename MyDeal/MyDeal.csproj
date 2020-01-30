@@ -637,6 +637,9 @@
     <Content Include="Views\CustomerInfo\Edit.cshtml" />
     <Content Include="Views\CustomerInfo\MyBids.cshtml" />
     <Content Include="Views\Shop\SearchCategory.cshtml" />
+    <Content Include="Views\Shop\LetestedProduct.cshtml" />
+    <Content Include="Views\Shop\GetAllProduct.cshtml" />
+    <Content Include="Views\Shop\LetestedAllProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,8 +3,7 @@
 @{
     ViewBag.Title = "Registration";
 }
-
-<h2>Registration</h2>
+<h4>Ragistration form</h4>
 
 @using (Html.BeginForm("Registration", "CustomerAuthentication", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -89,9 +88,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Registration" class="btn btn-default" />
+                <input type="submit" value="Registration" class="btn btn-outline-secondary" />
             </div>
         </div>
     </div>
 }
+
+
+
 

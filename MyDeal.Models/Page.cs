@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace MyDeal.Models
 {
     public class Page:Entity<int>
-    {
+    {   
         [Required]
         public string Name { get; set; }
         [Required]

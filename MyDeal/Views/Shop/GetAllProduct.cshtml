@@ -1,7 +1,14 @@
-﻿@model IEnumerable<MyDeal.Models.Product>
+﻿@using PagedList.Mvc;
+@using PagedList;
+
+@model  IPagedList<MyDeal.Models.Product>
+
+
 
 @{
-    ViewBag.Title = "Home";
+    /**/
+
+    ViewBag.Title = "GetAllProduct";
 }
 
 @Html.Action("Index", "WelcomeSlider")
@@ -31,9 +38,8 @@
                 </a>
             </div>
         }
-        <div class="col-lg-12">
-            <a href="/Shop/GetAllProduct" class="btn btn-outline-secondary float-right">+ See More</a>
-        </div>
     </div>
 </div>
-@Html.Action("LetestedProduct", "Shop");
+<div>
+    @Html.PagedListPager(Model, Page => Url.Action("GetAllProduct", "Shop", new { Page }))
+</div>

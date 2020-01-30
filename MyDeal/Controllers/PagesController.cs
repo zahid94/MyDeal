@@ -16,6 +16,7 @@ namespace MyDeal.Controllers
         {
             service = new PageMenuService();
         }
+        
         // GET: Pages
         public ActionResult Index(string pages)
         {

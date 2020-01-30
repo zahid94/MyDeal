@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - MyDeal</title>
+    <title>@ViewBag.Title - MyDeal.com</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -13,33 +13,30 @@
 <body>
     <div class="container">
         <div class="row">
+            <div class="TopHeader col-lg-12 text-right">
+                @if (Session["CustomerUserName"] != null)
+                {
+                    <a href="#" class="float-right">Sign In</a>
+                    <a href="#">Create Account</a>
+                }
+                else
+                {
+                    <a href="/CustomerAuthentication/LogIn">Sign In</a>
+                    <a href="/CustomerAuthentication/Registration">Create Account</a>
+                }
+                <a href="#">Help</a>  
+                <a href="#">@DateTime.Now.ToString("HH:mm:ss tt")</a>
+            </div>
             <div class="hedpad  col-xl-8">
                 <i class="fa fa-shopping-bag fa-3x" aria-hidden="true">
-                    <a href="/Shop/Index">MyDeal</a>
+                    <a href="/Shop/Index">MyDeal.com</a>
                 </i>
             </div>
-            <div class="headright col-xl-4">
-                <div class="headRightTop">
-                    @if (Session["CustomerUserName"] != null)
-                    {
-                        <a href="#">Sign In</a>
-                        <a href="#">Create Account</a>
-                    }
-                    else
-                    {
-                        <a href="/CustomerAuthentication/LogIn">Sign In</a>
-                        <a href="/CustomerAuthentication/Registration">Create Account</a>
-                    }
-                    <a href="#">Help</a>
-                    <a href="#">@DateTime.Now.Hour : @DateTime.Now.Minute</a>
-                </div>               
-                <p>
-                    @using (Html.BeginForm("SearchCategory", "Shop", FormMethod.Get))
-                    {                        
-                        <input id="Searching" name="Searching" type="text" value="" placeholder="search with category" aria-label="Search">
-                        <input type="submit" name="name" value="Search" class="btn btn-outline-success my-2 my-sm-0"/>
-                    }
-                </p>
+            <div class="headright col-xl-4">               
+                <form action="/Shop/SearchCategory" method="get">
+                    <input id="Searching" name="Searching" type="text" value="" placeholder="search with category" aria-label="Search">
+                    <input type="submit" name="name" value="Search" class="btn btn-outline-success" />
+                </form>
             </div>
         </div>
 

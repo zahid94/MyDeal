@@ -71,6 +71,7 @@ namespace MyDeal.Areas.Admin.Controllers
                     product.GallaryImages = gallary;                                                                  
                 }
                 service.AddProduct(product);
+                TempData["sm"] = "Added Product Successfully";
                 return RedirectToAction("AddProduct");
             }
             else

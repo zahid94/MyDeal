@@ -26,9 +26,30 @@ namespace MyDeal.Controllers
 
         [HttpGet]
         // GET: Shop
-        public ActionResult Index(int? page)
+        public ActionResult Index()
+        {            
+            return View(service.GetAllProduct(x=>x.Id>0).Take(8).ToList());
+        }
+
+        [HttpGet]
+        //GET:shop/allproduct
+        public ActionResult GetAllProduct(int? page)
+        {            
+            return View(service.GetAllProduct(x=>x.Id>0).ToPagedList(page ?? 1,20));
+        }
+
+        [HttpGet]
+        //GET:shop/letestedProduct
+        public ActionResult LetestedProduct()
+        {            
+            return PartialView(db.products.OrderByDescending(x => x.Id).Take(8).ToList());
+        }
+
+        [HttpGet]
+        //GET:shop/letestedAllProduct
+        public ActionResult LetestedAllProduct( int? page)
         {
-            return View(service.GetAllProduct(x=>x.Id>0).ToPagedList(page ?? 1,4));
+            return View(db.products.OrderByDescending(x=>x.Id).Take(50).ToPagedList(page ?? 1,20));
         }
 
         public ActionResult GetFilterProduct(int id)
