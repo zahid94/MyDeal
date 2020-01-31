@@ -37,14 +37,16 @@ namespace MyDeal.Controllers
             {
                 if (Session["ProductId"] != null)
                 {
-                    Session["CustomerUserName"] = customer.UserName.ToString();
+                    //Session["CustomerUserName"] = customer.UserName.ToString();
+                    FormsAuthentication.SetAuthCookie(customer.UserName,false);
                     Session["Id"] = repository.GetFirstOrDefault(x => x.UserName == customer.UserName).Id;
                     var productId = Convert.ToInt32(Session["ProductId"]);
                     return RedirectToAction("ProductDetails", "Shop", new { id = productId });
                 }
                 else
                 {
-                    Session["CustomerUserName"] = customer.UserName.ToString();
+                    //Session["CustomerUserName"] = customer.UserName.ToString();
+                    FormsAuthentication.SetAuthCookie(customer.UserName,false);
                     Session["Id"] = repository.GetFirstOrDefault(x => x.UserName == customer.UserName).Id;
                     return RedirectToAction("Index", "Shop");
                 }   
@@ -99,7 +101,7 @@ namespace MyDeal.Controllers
         }
         public ActionResult LogOut()
         {
-            Session.Clear();
+            FormsAuthentication.SignOut();
             return RedirectToAction("LogIn");
         }        
         

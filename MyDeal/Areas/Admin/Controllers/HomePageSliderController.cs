@@ -1,5 +1,4 @@
 ﻿using MyDeal.Areas.Admin.AdminAuthenticationFilter;
-using MyDeal.AuthenticationFilter;
 using MyDeal.Models;
 using MyDeal.Service;
 using System;

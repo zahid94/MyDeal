@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.Identity;
-using MyDeal.AuthenticationFilter;
 using MyDeal.Models;
 using MyDeal.Models.BidsInformation;
 using MyDeal.Service;
@@ -28,7 +27,8 @@ namespace MyDeal.Controllers
             return View();
         }
 
-        [AuthenticationFiltering]
+        
+        [Authorize]
         [HttpPost]
         public ActionResult AddBids(WinnerVM model)
         {
@@ -48,7 +48,8 @@ namespace MyDeal.Controllers
             return PartialView(service.GetFilterBider(x=>x.ProductId==ProductId).OrderByDescending(y=>y.BidsPrice));
         }
 
-        [AuthenticationFiltering]
+        
+        [Authorize]
         [HttpPost]
         public ActionResult Comment(CommentVM model)
         {

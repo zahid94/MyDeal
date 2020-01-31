@@ -145,7 +145,6 @@
     <Compile Include="Areas\Admin\Controllers\HomePageSliderController.cs" />
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
-    <Compile Include="AuthenticationFilter\AuthenticationFiltering.cs" />
     <Compile Include="Controllers\BidsController.cs" />
     <Compile Include="Controllers\CustomerAuthenticationController.cs" />
     <Compile Include="Controllers\CustomerInfoController.cs" />

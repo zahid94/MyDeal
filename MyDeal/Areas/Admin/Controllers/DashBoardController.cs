@@ -1,5 +1,4 @@
 ﻿using MyDeal.Areas.Admin.AdminAuthenticationFilter;
-using MyDeal.AuthenticationFilter;
 using MyDeal.Models;
 using MyDeal.Models.BidsInformation;
 using MyDeal.Service;
@@ -13,7 +12,7 @@ using System.Web.Mvc;
 
 namespace MyDeal.Areas.Admin.Controllers
 {
-    [AdminFiltering]    
+   [AdminFiltering] 
     public class DashBoardController : Controller
     {
         private readonly ICustomerService service;

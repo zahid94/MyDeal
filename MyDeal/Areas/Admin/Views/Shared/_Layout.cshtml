@@ -30,7 +30,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             </div>
             <ul class="navbar-nav nav-item ">
-                <li><a class="nav-link" href="#" id="NavText">Admin : @Session["Username"]</a></li>
+                <li><a class="nav-link" href="#" id="NavText">Admin :
+                    @Session["UserName"].ToString()
+                    </a></li>
                 <li><a href="/admin/AdminAuthentication/LogOut" class="nav-link" id="NavText">LogOut</a></li>
             </ul>
         </nav>

@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MyDeal.Controllers
 {
-    [HandleError]
+    [HandleError]    
     public class WelcomeSliderController : Controller
     {
         private readonly IHomePageSliderService service;

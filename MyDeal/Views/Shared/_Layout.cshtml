@@ -56,9 +56,14 @@
             </div>
 
             <ul class="navbar-nav nav-item ">
-                @if (Session["CustomerUserName"] != null)
+                @*@if (Session["CustomerUserName"] != null)
                 {
                     <li><a class="nav-link" href="/CustomerInfo/Details?id=@Session["id"]" id="NavText">@Session["CustomerUserName"].ToString()</a></li>
+                    <li><a href="/CustomerAuthentication/LogOut" class="nav-link" id="NavText">LogOut</a></li>
+                }*@
+                @if (User.Identity.IsAuthenticated)
+                {
+                     <li><a class="nav-link" href="/CustomerInfo/Details?id=@Session["id"]" id="NavText">@User.Identity.Name</a></li>
                     <li><a href="/CustomerAuthentication/LogOut" class="nav-link" id="NavText">LogOut</a></li>
                 }
             </ul>

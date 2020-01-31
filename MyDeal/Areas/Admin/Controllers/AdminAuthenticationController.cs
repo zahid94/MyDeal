@@ -1,5 +1,4 @@
 ﻿using MyDeal.Areas.Admin.AdminAuthenticationFilter;
-using MyDeal.AuthenticationFilter;
 using MyDeal.Models;
 using System;
 using System.Collections.Generic;
@@ -31,8 +30,7 @@ namespace MyDeal.Areas.Admin.Controllers
         {
             if (db.registrations.Any(x=>x.UserName==admin.UserName&& x.password==admin.password))
             {
-                Session["UserName"] = admin.UserName.ToString();
-                FormsAuthentication.SetAuthCookie(admin.UserName, false);
+                Session["UserName"] = admin.UserName;                
                 return RedirectToAction("index","DashBoard");
             }
             else
